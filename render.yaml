@@ -1,0 +1,19 @@
+services:
+  - type: web
+    name: dynamic-qr-backend
+    runtime: node
+    plan: free
+    rootDir: backend-node
+    buildCommand: npm install
+    startCommand: npm start
+    envVars:
+      - key: DATABASE_URL
+        sync: false
+      - key: DATABASE_SSL
+        value: "true"
+      - key: BASE_URL
+        sync: false
+      - key: SECRET_KEY
+        generateValue: true
+      - key: CORS_ALLOW_ORIGINS
+        value: "*"
